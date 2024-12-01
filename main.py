@@ -126,6 +126,7 @@ value_list = {
     "Cursed Circus": 0.1,
 }
 
+
 def calculate_trade_value(items):
     """Calculate the total value of a trade."""
     total_value = 0
@@ -153,9 +154,16 @@ def is_fair_trade(items_offered, items_requested):
     else:
         return False, "Trade favors you (underpaying)."
 
-# Example usage
-items_offered = ["Party Balloons", "Spooky Brew"]
-items_requested = ["Pumpkin Slice", "Devilish Flame"]
-
-result, message = is_fair_trade(items_offered, items_requested)
-print(message)
+# Main script
+if __name__ == "__main__":
+    # Input items as space-separated strings
+    offered_items_input = input("Enter the names of the items you are trading (separated by spaces): ")
+    requested_items_input = input("Enter the names of the items you want in return (separated by spaces): ")
+    
+    # Convert inputs to lists
+    offered_items = offered_items_input.split()
+    requested_items = requested_items_input.split()
+    
+    # Check if the trade is fair
+    result, message = is_fair_trade(offered_items, requested_items)
+    print(message)
